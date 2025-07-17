@@ -9,7 +9,16 @@ public class Course {
     private int id;
 
     private String title;
-    private String image;
+
+    private String tutorName;
+    private String organizationName;
+
+    private String imageUrl;       // thumbnail
+
+    private String videoPath;      // actual video file path or cloud URL
+
+    @Column(length = 2000)
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -18,13 +27,18 @@ public class Course {
     // Constructors
     public Course() {}
 
-    public Course(String title, String image, Users uploadedBy) {
+    public Course(String title, String tutorName, String organizationName, String imageUrl,
+                  String videoPath, String description, Users uploadedBy) {
         this.title = title;
-        this.image = image;
+        this.tutorName = tutorName;
+        this.organizationName = organizationName;
+        this.imageUrl = imageUrl;
+        this.videoPath = videoPath;
+        this.description = description;
         this.uploadedBy = uploadedBy;
     }
 
-    // Getters and setters
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -33,8 +47,24 @@ public class Course {
         return title;
     }
 
-    public String getImage() {
-        return image;
+    public String getTutorName() {
+        return tutorName;
+    }
+
+    public String getOrganizationName() {
+        return organizationName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getVideoPath() {
+        return videoPath;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public Users getUploadedBy() {
@@ -49,8 +79,24 @@ public class Course {
         this.title = title;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setTutorName(String tutorName) {
+        this.tutorName = tutorName;
+    }
+
+    public void setOrganizationName(String organizationName) {
+        this.organizationName = organizationName;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setUploadedBy(Users uploadedBy) {
