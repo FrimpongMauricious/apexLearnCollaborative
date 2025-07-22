@@ -16,6 +16,9 @@ public class Course {
     private String imageUrl;       // thumbnail
 
     private String videoPath;      // actual video file path or cloud URL
+    private String price;
+
+
 
     @Column(length = 2000)
     private String description;
@@ -27,7 +30,7 @@ public class Course {
     // Constructors
     public Course() {}
 
-    public Course(String title, String tutorName, String organizationName, String imageUrl,
+    public Course(String title, String tutorName, String organizationName, String imageUrl, String price,
                   String videoPath, String description, Users uploadedBy) {
         this.title = title;
         this.tutorName = tutorName;
@@ -36,8 +39,16 @@ public class Course {
         this.videoPath = videoPath;
         this.description = description;
         this.uploadedBy = uploadedBy;
+        this.price = price;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
     // Getters and Setters
     public int getId() {
         return id;

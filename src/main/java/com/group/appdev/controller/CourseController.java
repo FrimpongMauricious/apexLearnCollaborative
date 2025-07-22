@@ -57,8 +57,10 @@ public class CourseController {
         course.setOrganizationName(courseData.getOrganizationName());
         course.setImageUrl(courseData.getImageUrl());
         course.setVideoPath(courseData.getVideoPath());
+        course.setPrice(courseData.getPrice());
         course.setDescription(courseData.getDescription());
         course.setUploadedBy(user);
+
 
         courseRepository.save(course);
         return ResponseEntity.ok("Course saved successfully");
@@ -76,6 +78,7 @@ public class CourseController {
         existingCourse.setImageUrl(updatedCourse.getImageUrl());
         existingCourse.setVideoPath(updatedCourse.getVideoPath());
         existingCourse.setDescription(updatedCourse.getDescription());
+        existingCourse.setPrice(updatedCourse.getPrice());
 
         // Optional: Update uploader only if needed
         if (updatedCourse.getUploadedBy() != null) {
